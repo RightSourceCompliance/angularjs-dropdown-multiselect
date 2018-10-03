@@ -202,6 +202,11 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 					findObj[$scope.settings.idProp] = id;
 				} else {
 					findObj[$scope.settings.externalIdProp] = id;
+					angular.forEach($scope.options, function (value, index) {
+                        if(value.id == id){
+                            findObj.label = value.label;
+                        }
+                    });
 				}
 
 				return findObj;
